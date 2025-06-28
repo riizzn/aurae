@@ -14,10 +14,11 @@ export const sampleBooks = [
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "Eckhart Tolle guides readers on a journey to enlightenment by shifting from ego-based thinking to conscious presence, helping them find purpose, peace, and fulfillment.",
+      isLoanedBook:false
   },
   {
     id: 2,
-    title: "Ikigai: The Japanese Secret to a Long and Happy Life",
+    title: "Ikigai",
     author: "Héctor García & Francesc Miralles",
     genre: "Self-Help / Philosophy",
     rating: 4.6,
@@ -26,7 +27,7 @@ export const sampleBooks = [
     description:
       "An inspiring and practical guide to living a life full of meaning and purpose based on the Japanese concept of Ikigai.",
     coverColor: "#A0CFEF",
-    coverUrl: "/images/b2.png",
+    coverUrl: "https://m.media-amazon.com/images/I/81l3rZK4lnL._SY522_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "Explores how finding your ikigai—your reason for being—can lead to a longer, more fulfilling life, combining insights from Japanese philosophy, mindfulness, and longevity.",
@@ -42,7 +43,7 @@ export const sampleBooks = [
     description:
       "A brutally honest guide to living a better life by caring less about more and more about less.",
     coverColor: "#F25400",
-    coverUrl: "/images/b3.png",
+    coverUrl: "https://m.media-amazon.com/images/I/71t4GuxLCuL._SY522_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "Mark Manson delivers no-nonsense advice about embracing life's challenges, letting go of toxic positivity, and focusing on what truly matters.",
@@ -58,7 +59,7 @@ export const sampleBooks = [
     description:
       "A revolutionary guide to making good habits, breaking bad ones, and getting 1% better every day.",
     coverColor: "#F5F1EB",
-    coverUrl: "/images/b4.png",
+    coverUrl: "https://m.media-amazon.com/images/I/81F90H7hnML._SY522_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "A revolutionary guide to making good habits, breaking bad ones, and getting 1% better every day.",
@@ -74,7 +75,7 @@ export const sampleBooks = [
     description:
       "A tale of love and spiritual awakening inspired by Rumi and his companion Shams of Tabriz, woven through the story of a modern-day woman.",
     coverColor: "#2E7D7E",
-    coverUrl: "/images/b5.png",
+    coverUrl: "https://m.media-amazon.com/images/I/51UHcL70llL._SY445_SX342_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "Elif Shafak intertwines two narratives—one contemporary and one historical—exploring the mystical dimensions of love, spirituality, and the human soul.",
@@ -90,7 +91,7 @@ export const sampleBooks = [
     description:
       "A magical tale of Santiago, an Andalusian shepherd boy, who embarks on a journey to find a worldly treasure.",
     coverColor: "#E8C36A",
-    coverUrl: "/images/b6.png",
+    coverUrl: "https://m.media-amazon.com/images/I/41ziEX0PJgL._SY445_SX342_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "A magical tale of Santiago, an Andalusian shepherd boy, who embarks on a journey to find a worldly treasure.",
@@ -106,7 +107,7 @@ export const sampleBooks = [
     description:
       "Morgan Housel explores the unique behaviors and mindsets that shape financial success and decision-making.",
     coverColor: "D1EDEA",
-    coverUrl: "/images/b7.png",
+    coverUrl: "https://m.media-amazon.com/images/I/81Dky+tD+pL._SY522_.jpg",
     videoUrl: "/sample-video.mp4?updatedAt=1722593504152",
     summary:
       "Morgan Housel explores the unique behaviors and mindsets that shape financial success and decision-making.",
