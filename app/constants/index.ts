@@ -1,5 +1,5 @@
 export const FIELD_NAMES = {
-  fullname: "Full name",
+  fullName: "Full name",
   email: "Email",
   auraeId: "Aurae ID Number",
   password: "Password",
@@ -7,7 +7,7 @@ export const FIELD_NAMES = {
 };
 
 export const FIELD_TYPES = {
-  fullname: "text",
+  fullName: "text",
   email: "email",
   auraeId: "number",
   password: "password",
