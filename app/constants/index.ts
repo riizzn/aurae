@@ -1,3 +1,18 @@
+export const FIELD_NAMES = {
+  fullname: "Full name",
+  email: "Email",
+  auraeId: "Aurae ID Number",
+  password: "Password",
+  auraeCard: "Upload Aurae Membership Card",
+};
+
+export const FIELD_TYPES = {
+  fullname: "text",
+  email: "email",
+  auraeId: "number",
+  password: "password",
+};
+
 export const sampleBooks = [
   {
     id: 1,
