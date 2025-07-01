@@ -33,8 +33,7 @@ interface ImageUploadProps {
   onFileChange: (filePath: string) => void;
 }
 const ImageUpload = ({ onFileChange }: ImageUploadProps) => {
-  console.log("✅ publicKey from config:", publicKey);
-console.log("✅ urlEndpoint from config:", urlEndpoint);
+ 
   const ikUploadRef = useRef(null);
   const [file, setFile] = useState<{ filePath: string } | null>(null);
 
