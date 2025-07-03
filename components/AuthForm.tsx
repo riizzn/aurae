@@ -10,12 +10,11 @@ import {
 
 import React from "react";
 import { FieldValues } from "react-hook-form";
-import {  ZodType } from "zod";
+import { ZodType } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-
   FormField,
   FormItem,
   FormLabel,
@@ -25,6 +24,8 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/app/constants";
 import ImageUpload from "./ImageUpload";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation"
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -38,6 +39,7 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: Props<T>) => {
+  const router =useRouter();
   const isSignIn = type === "SIGN_IN";
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
@@ -45,7 +47,26 @@ const AuthForm = <T extends FieldValues>({
   });
 
   // 2. Define a submit handler.
-  const handleSubmit: SubmitHandler<T> = async (data) => {};
+  const handleSubmit: SubmitHandler<T> = async (data) => {
+    const result = await onSubmit(data);
+
+    if (result.success) {
+      toast.success("Success", {
+        description: isSignIn
+          ? "You have successfully signed in"
+          : "You have successfully signed up",
+      });
+      router.push('/');
+    }
+    else{
+      toast.error(`Error ${isSignIn ? "signing in" : "signing up" }`,
+        {description: result.error ?? "An error occurred." ,
+          
+        }
+      ); 
+
+    }
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -66,29 +87,38 @@ const AuthForm = <T extends FieldValues>({
         >
           {Object.keys(defaultValues).map((field) => (
             <FormField
-             key={field}
+              key={field}
               control={form.control}
               name={field as Path<T>}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="capitalize">{FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}</FormLabel>
+                  <FormLabel className="capitalize">
+                    {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
+                  </FormLabel>
                   <FormControl>
-                    {field.name==="auraeCard"?(<ImageUpload
-                    onFileChange={field.onChange}
-                    />):
-                    (<Input required type={FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]} {...field}
-                    className="form-input"/>)}
-                    
+                    {field.name === "auraeCard" ? (
+                      <ImageUpload onFileChange={field.onChange} />
+                    ) : (
+                      <Input
+                        required
+                        type={
+                          FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]
+                        }
+                        {...field}
+                        className="form-input"
+                      />
+                    )}
                   </FormControl>
 
-                  
                   <FormMessage />
                 </FormItem>
               )}
             />
           ))}
 
-          <Button type="submit" className="form-btn">{isSignIn ? "Sign In" : "Sign Up"}</Button>
+          <Button type="submit" className="form-btn">
+            {isSignIn ? "Sign In" : "Sign Up"}
+          </Button>
         </form>
       </Form>
       <p className="text-base font-medium text-center">

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ReactNode } from "react";
+import {SessionProvider} from "next-auth/react"
+import { auth } from "@/auth";
 
 const ibmPlexSans = localFont({
   src: [
@@ -26,9 +28,11 @@ export const metadata: Metadata = {
     "Aurae is like a manifestation portal where you can unlock your 6th sense",
 };
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const RootLayout = async ({ children }: { children: ReactNode }) => {
+  const session=await auth();
   return (
     <html lang="en">
+      <SessionProvider session={session}>
       <body
         className={`${ibmPlexSans.className} my font bebas nue in my global. css -@theme {   /* Custom radius /   --radius: 0.5rem;    / Fonts /   --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;   --font-bebas-neue: "Bebas Neue", sans-serif;    / Breakpoints */   --breakpoint-xs: 480px;- is acttually suppposed to be a varialble -const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -40,6 +44,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         {children}
         <Toaster />
       </body>
+      </SessionProvider>
     </html>
   );
 };
