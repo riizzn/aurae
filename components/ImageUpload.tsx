@@ -14,19 +14,28 @@ const {
 
 const authenticator = async () => {
   try {
+    console.log('=== Frontend Auth Request ===');
+    console.log('Requesting:', `${config.env.apiEndpoint}/api/auth/imagekit`);
+    
     const response = await fetch(`${config.env.apiEndpoint}/api/auth/imagekit`);
+    console.log('Response status:', response.status);
+    
     if (!response.ok) {
       const errorText = await response.text();
-
+      console.error('Response error:', errorText);
       throw new Error(
         `request failed with status ${response.status}: ${errorText}`
       );
     }
+    
     const data = await response.json();
+    console.log('Auth data received:', data);
+    
     const { signature, expire, token } = data;
     return { token, expire, signature };
   } catch (error: any) {
-    throw new Error(`Authrntication request failed: ${error.message}`);
+    console.error('Authentication failed:', error);
+    throw new Error(`Authentication request failed: ${error.message}`);
   }
 };
 interface ImageUploadProps {
