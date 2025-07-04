@@ -1,4 +1,6 @@
+export const runtime = 'nodejs';
 import ImageKit from "imagekit";
+
 import config from "@/lib/config";
 import { NextResponse } from "next/server";
 

@@ -9,6 +9,7 @@ import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import ratelimit from "../ratelimit";
 import { redirect } from "next/navigation";
+import { triggerWelcomeEmail } from "@/lib/workflow";
 
 export const signInWithCredentials = async (
   params: Pick<AuthCredentials, "email" | "password">
@@ -55,6 +56,10 @@ export const signUp = async (params: AuthCredentials) => {
       password: hashedPassword,
       auraeId,
       auraeCard,
+    });
+     await triggerWelcomeEmail({
+      name: fullName,
+      email,
     });
 
     await signInWithCredentials({ email, password });
