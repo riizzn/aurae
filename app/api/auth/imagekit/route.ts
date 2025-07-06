@@ -10,10 +10,6 @@ const {
   },
 } = config;
 
-console.log('=== ImageKit Config Debug ===');
-console.log('publicKey:', publicKey ? 'SET' : 'MISSING');
-console.log('privateKey:', privateKey ? 'SET' : 'MISSING');
-console.log('urlEndpoint:', urlEndpoint ? 'SET' : 'MISSING');
 
 const imagekit = new ImageKit({
   publicKey,
@@ -22,7 +18,7 @@ const imagekit = new ImageKit({
 });
 
 export async function GET() {
-  console.log('=== ImageKit Auth Request ===');
+
   try {
     const result = imagekit.getAuthenticationParameters();
     console.log('Auth success:', result);
