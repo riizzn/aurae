@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const Header = ({session}: {session:Session}) => {
+const Header = ({ session }: { session: Session }) => {
   const pathname = usePathname();
   return (
     <header className="my-10 flex justify-between gap-5 ">
@@ -30,9 +30,11 @@ const Header = ({session}: {session:Session}) => {
         <li>
           <Link href="/my-profile">
             <Avatar>
-              
-              <AvatarFallback className="bg-purple-300">{getInitials(session?.user?.name|| "IN ")}</AvatarFallback>
+              <AvatarFallback className="bg-purple-300">
+                {getInitials(session?.user?.name || "IN ")}
+              </AvatarFallback>
             </Avatar>
+            
           </Link>
         </li>
       </ul>

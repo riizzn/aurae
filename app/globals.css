@@ -20,7 +20,7 @@
   --color-popover: oklch(0.09 0.024 264.05);
   --color-popover-foreground: oklch(0.98 0.013 264.05);
   --color-primary: oklch(0.85 0.06 85.87); /* #E7C9A5 */
-  --color-primary-admin: oklch(0.35 0.12 264.05); /* #25388C */
+  --color-primary-admin: oklch(35.458% 0.07733 296.593);
   --color-primary-foreground: oklch(0.25 0.015 264.05);
   --color-secondary: oklch(0.25 0.015 264.05);
   --color-secondary-foreground: oklch(0.98 0.013 264.05);
@@ -60,7 +60,7 @@
   /* Light purples & neutrals */
   --color-light-100: oklch(0.92 0.08 290); /* Soft Lilac */
   --color-light-200: oklch(0.85 0.06 85.87); /* #EED1AC */
-  --color-light-300: oklch(0.99 0.01 295); /* Snow Lavender */
+  --color-light-300: oklch(94.483% 0.02187 297.295); /* Snow Lavender */
   --color-light-400: oklch(0.94 0.005 250); /* Mist Gray */
   --color-light-500: oklch(0.6 0 0); /* Neutral Gray */
   --color-light-600: oklch(0.98 0.005 270); /* Frost Petal */
