@@ -29,6 +29,7 @@ import { useRouter } from "next/navigation";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
 import ImageUpload from "@/components/ImageUpload";
+import ColorPicker from "../ColorPicker";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -52,7 +53,9 @@ const BookForm = ({ type, ...book }: Props) => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof bookSchema>) => {};
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    console.log("Submitted values:", values);
+  };
 
   return (
     <Form {...form}>
@@ -199,7 +202,9 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Primary Color
               </FormLabel>
-              <FormControl></FormControl>
+              <FormControl>
+                <ColorPicker onPickerChange={field.onChange} value={field.value}/>
+              </FormControl>
 
               <FormMessage />
             </FormItem>

@@ -49,7 +49,7 @@ const ImageUpload = ({
   placeholder,
 }: ImageUploadProps) => {
   const ikUploadRef = useRef(null);
-  const [file, setFile] = useState<{ filePath: string } | null>(null);
+  const [file, setFile] = useState<any>(value ? { filePath: value } : null);
   const [progress, setProgress] = useState(0);
 
   const styles = {
