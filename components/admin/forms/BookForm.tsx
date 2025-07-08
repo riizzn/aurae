@@ -23,11 +23,12 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/app/constants";
-import ImageUpload from "./ImageUpload";
+
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { bookSchema } from "@/lib/validations";
 import { Textarea } from "@/components/ui/textarea";
+import ImageUpload from "@/components/ImageUpload";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -175,13 +176,22 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Image
               </FormLabel>
-              <FormControl></FormControl>
+              <FormControl>
+                <ImageUpload
+                  type="image"
+                  onFileChange={field.onChange}
+                  accept="image/*"
+                  placeholder="Upload a Book Cover"
+                  folder="books/covers"
+                  variant="light"
+                />
+              </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-           <FormField
+        <FormField
           control={form.control}
           name={"coverColor"}
           render={({ field }) => (
@@ -195,23 +205,28 @@ const BookForm = ({ type, ...book }: Props) => {
             </FormItem>
           )}
         />
-          <FormField
+        <FormField
           control={form.control}
           name={"description"}
           render={({ field }) => (
             <FormItem className="flex flex-col gap-1">
               <FormLabel className="text-base font-normal text-dark-500">
-                Book Summary
+                Description
               </FormLabel>
               <FormControl>
-                <Textarea placeholder="Book description" {...field}  rows={10} className="book-form_input !bg-white min-h-[200px]"/>
+                <Textarea
+                  placeholder="Book description"
+                  {...field}
+                  rows={10}
+                  className="book-form_input !bg-white min-h-[200px]"
+                />
               </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-           <FormField
+        <FormField
           control={form.control}
           name={"videoUrl"}
           render={({ field }) => (
@@ -219,13 +234,22 @@ const BookForm = ({ type, ...book }: Props) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Book Trailer
               </FormLabel>
-              <FormControl></FormControl>
+              <FormControl>
+                 <ImageUpload
+                  type="video"
+                  onFileChange={field.onChange}
+                  accept="video/*"
+                  placeholder="Upload a Book trailer"
+                  folder="books/video"
+                  variant="light"
+                />
+              </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-          <FormField
+        <FormField
           control={form.control}
           name={"summary"}
           render={({ field }) => (
@@ -234,19 +258,21 @@ const BookForm = ({ type, ...book }: Props) => {
                 Book Summary
               </FormLabel>
               <FormControl>
-                <Textarea placeholder="Book description" {...field}  rows={5} className="book-form_input !bg-white min-h-[200px]"/>
+                <Textarea
+                  placeholder="Book description"
+                  {...field}
+                  rows={5}
+                  className="book-form_input !bg-white min-h-[100px]"
+                />
               </FormControl>
 
               <FormMessage />
             </FormItem>
           )}
         />
-       <Button type="submit" className="book-form_btn">
-        Add Book to Library
-       </Button>
-       
-         
-         
+        <Button type="submit" className="book-form_btn">
+          Add Book to Library
+        </Button>
       </form>
     </Form>
   );

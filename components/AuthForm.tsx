@@ -25,7 +25,7 @@ import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/app/constants";
 import ImageUpload from "./ImageUpload";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -39,7 +39,7 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: Props<T>) => {
-  const router =useRouter();
+  const router = useRouter();
   const isSignIn = type === "SIGN_IN";
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
@@ -56,15 +56,11 @@ const AuthForm = <T extends FieldValues>({
           ? "You have successfully signed in"
           : "You have successfully signed up",
       });
-      router.push('/');
-    }
-    else{
-      toast.error(`Error ${isSignIn ? "signing in" : "signing up" }`,
-        {description: result.error ?? "An error occurred." ,
-          
-        }
-      ); 
-
+      router.push("/");
+    } else {
+      toast.error(`Error ${isSignIn ? "signing in" : "signing up"}`, {
+        description: result.error ?? "An error occurred.",
+      });
     }
   };
 
@@ -97,7 +93,14 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "auraeCard" ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <ImageUpload
+                        type="image"
+                        onFileChange={field.onChange}
+                        accept="image/*"
+                        placeholder="Upload you Image"
+                        folder="ids"
+                        variant="dark"
+                      />
                     ) : (
                       <Input
                         required
