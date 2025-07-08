@@ -361,7 +361,7 @@
   @apply flex w-[calc(100%-264px)] flex-1 flex-col bg-light-300 p-5 xs:p-10;
 }
 @utility back-btn {
-  @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300;
+  @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300 ;
 }
 @utility confirm-trigger {
   @apply font-bold text-sm shadow-none hover:opacity-70 w-full;
@@ -391,7 +391,7 @@
 
 /* Book Form */
 @utility book-form_input {
-  @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500;
+  @apply min-h-14 border border-gray-100  bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500 ;
 }
 
 @utility book-form_btn {
