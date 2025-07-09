@@ -8,6 +8,13 @@
       "when": 1751396703657,
       "tag": "0000_tense_night_thrasher",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752052595843,
+      "tag": "0001_left_black_queen",
+      "breakpoints": true
     }
   ]
 }
