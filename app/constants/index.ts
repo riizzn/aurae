@@ -13,7 +13,7 @@ export const FIELD_TYPES = {
   password: "password",
 };
 
-export const sampleBooks = [
+/*export const sampleBooks = [
   {
     id: 1,
     title: "A New Earth",
@@ -127,7 +127,7 @@ export const sampleBooks = [
     summary:
       "Morgan Housel explores the unique behaviors and mindsets that shape financial success and decision-making.",
   },
-];
+]; */
 
 export const adminSideBarLinks = [
   {

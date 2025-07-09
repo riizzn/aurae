@@ -8,6 +8,7 @@ import {
   uuid,
   varchar,
   timestamp,
+  real,
 } from "drizzle-orm/pg-core";
 
 export const STATUS_ENUM = pgEnum("status", [
@@ -46,7 +47,7 @@ export const books = pgTable("books", {
   author: varchar("author", { length: 255 }).notNull(),
   genre: text("genre").notNull(),
 
-  rating: integer("rating").notNull(), // assuming it's between 1 and 5, you can add a constraint
+  rating: real("rating").notNull(), // assuming it's between 1 and 5, you can add a constraint
 
   coverUrl: text("cover_url").notNull(),
   coverColor: varchar("cover_color", { length: 7 }).notNull(), // e.g., "#aabbcc"
