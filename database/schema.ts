@@ -39,7 +39,6 @@ export const users = pgTable("users", {
 
 
 
-
 export const books = pgTable("books", {
   id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
 
@@ -56,7 +55,9 @@ export const books = pgTable("books", {
   summary: varchar("summary").notNull(),
 
   totalCopies: integer("total_copies").notNull().default(1),
+  availableCopies: integer("available_copies").notNull(), 
   videoUrl: text("video_url").notNull(),
 
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });
+

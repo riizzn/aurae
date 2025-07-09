@@ -33,6 +33,7 @@ interface BookParams {
   totalCopies: number;
   videoUrl: string;
   summary: string;
+  availableCopies: number;
 }
 
 interface BorrowBookParams {

@@ -8,12 +8,12 @@ const BookOverview = ({
   author,
   genre,
   rating,
-  total_copies,
-  available_copies,
+  totalCopies,
+  availableCopies,
    description,
   coverColor,
   coverUrl,
-}: book) => {
+}: Book) => {
   return (
     <section className="book-overview">
       <div className="flex flex-1 flex-col gap-2 ">
@@ -34,10 +34,10 @@ const BookOverview = ({
         </div>
         <div className="book-copies">
             <p>
-              Total books: <span>{total_copies}</span>
+              Total books: <span>{totalCopies}</span>
             </p>
             <p>
-              Available books: <span>{available_copies}</span>
+              Available books: <span>{availableCopies}</span>
             </p>
           </div>
           <p className="book-description">{description}</p>
