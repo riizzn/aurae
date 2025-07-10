@@ -17,7 +17,7 @@ const Page = () => {
 
 
     </form>
-    <BookList title="Borrowed books" books={sampleBooks}/>
+   
     </>
   )
 }
