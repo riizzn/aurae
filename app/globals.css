@@ -307,7 +307,7 @@
 }
 
 .book-details h3 {
-  @apply text-xl font-semibold text-primary;
+  @apply text-3xl font-semibold text-primary;
 }
 
 #book-ticket {

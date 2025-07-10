@@ -2,7 +2,9 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import BookCover from "./BookCover";
-
+interface Props extends Book {
+  userId: string;
+}
 const BookOverview = ({
   title,
   author,
@@ -13,6 +15,7 @@ const BookOverview = ({
    description,
   coverColor,
   coverUrl,
+  userId,
 }: Book) => {
   return (
     <section className="book-overview">
